@@ -1,0 +1,43 @@
+﻿
+
+Create Database Db14Project20
+
+Use Db14Project20 
+
+Create Table Teams
+(
+TeamId int primary key identity(1,1),
+TeamName nvarchar(100),
+TeamCountry nvarchar(100)
+)
+Create table TeamDetails
+(
+TeamDetailsId int primary key identity(1,1),
+TeamId int unique,
+TeamColor nvarchar(50),
+TeamCity nvarchar(50),
+TeamValue Decimal(18,2)
+Foreign key (TeamId) references Teams(TeamId)
+)
+
+Create Table Players
+(
+PlayerId int identity(1,1) primary key,
+PlayerName nvarchar(50),
+TeamId int,
+Foreign Key (TeamId) references Teams(TeamId)
+)
+
+Create Table Sponsors (
+SponsorId int primary key identity(1,1),
+SponsorName nvarchar(50)
+)
+
+Create Table TeamSponsors 
+(
+TeamId int,
+SponsorId int,
+Primary Key(TeamId,SponsorId),
+Foreign Key (TeamId) references Teams(TeamId),
+Foreign Key (SponsorId) references Sponsors(SponsorId)
+)

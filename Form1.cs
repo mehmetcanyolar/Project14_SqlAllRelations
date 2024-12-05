@@ -21,5 +21,12 @@ namespace Project14_SqlAllRelations
         {
 
         }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'db14Project20DataSet1.Teams' table. You can move, or remove it, as needed.
+            this.teamsTableAdapter1.Fill(this.db14Project20DataSet1.Teams);
+
+        }
     }
 }
